@@ -1,0 +1,88 @@
+﻿@model CreateProductVM
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+
+            <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Create Slide</h4>
+
+                        <form class="forms-sample" method="post" enctype="multipart/form-data">
+                            @* <div class="form-group">
+                                <label asp-for="Photo">Photo</label>
+                                <input asp-for="Photo" class="form-control" placeholder="Photo" accept="image/*">
+                                <span class="text-danger" asp-validation-for="Photo"></span>
+                            </div> *@
+                            <div class="form-group">
+                                <label asp-for="MainPhoto">Main Image</label>
+                                <input asp-for="MainPhoto" class="form-control" placeholder="MainPhoto">
+                                <span class="text-danger" asp-validation-for="MainPhoto"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="HoverPhoto">Hover Image</label>
+                                <input asp-for="HoverPhoto" class="form-control" placeholder="HoverPhoto">
+                                <span class="text-danger" asp-validation-for="HoverPhoto"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Photos">Additional Images</label>
+                                <input asp-for="Photos" class="form-control" placeholder="Photos">
+                                <span class="text-danger" asp-validation-for="Photos"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Name">Name</label>
+                                <input asp-for="Name" class="form-control" placeholder="Name">
+                                <span class="text-danger" asp-validation-for="Name"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Price">Price</label>
+                                <input asp-for="Price" class="form-control" placeholder="Price">
+                                <span class="text-danger" asp-validation-for="Price"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="SKU">SKU</label>
+                                <input asp-for="SKU" class="form-control" placeholder="SKU">
+                                <span class="text-danger" asp-validation-for="SKU"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="CategoryId">Category</label>
+                                <select class="form-control" asp-for="CategoryId" asp-items="new SelectList(Model.Categories,nameof(Category.Id),nameof(Category.Name))">
+                                    <option disabled selected> Choose Category</option>
+                                
+                               </select>
+                               @*  <select class="form-control" asp-for="CategoryId">
+                                    <option disabled selected> Choose Category</option>
+                                    @foreach (Category category in Model.Categories)
+                                    {
+                                        <option value="@category.Id"> @category.Name </option>
+                                    }
+                                </select> *@
+                                <span class="text-danger" asp-validation-for="CategoryId"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="TagIds">Tags</label>
+                                <select class="form-control" asp-for="TagIds" asp-items="new SelectList(Model.Tags,nameof(Tag.Id),nameof(Tag.Name))">
+                                  
+
+                                </select>
+                              
+                                <span class="text-danger" asp-validation-for="TagIds"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Description">Description</label>
+                                <input asp-for="Description" class="form-control" placeholder="Description">
+                                <span class="text-danger" asp-validation-for="Description"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary me-2">Create</button>
+                            <a asp-action="Index" class="btn btn-light">Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
